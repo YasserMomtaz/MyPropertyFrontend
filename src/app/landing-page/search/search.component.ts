@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ApartmentService } from 'src/app/Services/apartment.service';
 import { Apartment } from 'src/app/_models/Apartment';
@@ -9,6 +9,7 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
+  @Output () flag=new EventEmitter<boolean> (false);
   minArea: number= 0;
   maxArea: number = 0;
   minPrice: number = 0;
@@ -25,6 +26,7 @@ export class SearchComponent {
   constructor(private apartmentService: ApartmentService) {}
 
   findData(page:number) {
+    this.flag.emit(true);
     const data = {
       minArea: this.minArea,
       maxArea: this.maxArea,

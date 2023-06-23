@@ -1,71 +1,72 @@
-
-    <div class="container text-center mt-3 mb-3 pt-3 pb-3">
-      <div class="row mb-3">
-        <div class="col col-1">
-          <a class="btn btn-primary btn-md" routerLink="/buy" role="button">Buy</a>
-        </div>
-        <div class="col-1">
-          <a class="btn btn-info btn-md" routerLink="/rent" role="button">Rent</a>
-        </div>
-      </div>
-      <div class="container mt-5">
+<div class="HomeBackground">
+  <h1 class="text-center pt-3"> Your Property Finder</h1> 
+<div class="container text-center mt-3 mb-3 pt-3 pb-3">
+  <div class="row mb-3">
+    <div class="col col-1">
+      <a class="btn btn-primary btn-md" routerLink="/buy" role="button">Buy</a>
+    </div>
+    <div class="col-1">
+      <a class="btn btn-info btn-md" routerLink="/rent" role="button">Rent</a>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
         <div class="card">
           <div class="card-body">
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-3">
-                    <input type="number" class="form-control" [(ngModel)]="minArea" placeholder="min area" >
-                  </div>
-                  <div class="col-md-3">
-                    <input type="number" class="form-control" placeholder="max area" [(ngModel)]="maxArea">
-                  </div>
-                  <div class="col-md-3">
-                    <input type="number" class="form-control" placeholder="min price" [(ngModel)]="minPrice">
-                  </div>
-                  <div class="col-md-3">
-                    <input type="number" class="form-control" placeholder="max price" [(ngModel)]="maxPrice">
-                  </div>
-                </div>
-                <div class="row mt-3">
-                  <div class="col-md-3">
-                    <select class="form-control" [(ngModel)]="City">
-                      <option value="Alex">alex selected</option>
-                      <option value="cairo">cairo</option>
-                      <option value="mansora">mansora</option>
-                    </select>
-                  </div>
-                  <div class="col-md-3">
-                    <select class="form-control" [(ngModel)]="type">
-                      <option value="Buy" selected>Buy</option>
-                      <option value="Rent">Rent</option>
-                      
-                    </select>
-                  </div>
-                  <div class="col-md-3">
-                    <input type="text" class="form-control" placeholder="Address" [(ngModel)]="Address">
-                  </div>
-                </div>
-                <div class="row mt-3">
-                  <div class="col text-right" style="display: flex; justify-content: center;">
-                    <button type="button" class="btn btn-primary btn-lg active" role="button" (click)="findData(1)">Search</button>
-                  </div>
-                </div>
+            <div class="row">
+              <div class="col-md-3">
+                <input type="number" class="form-control" [(ngModel)]="minArea" placeholder="min area" >
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="max area" [(ngModel)]="maxArea">
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="min price" [(ngModel)]="minPrice">
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control" placeholder="max price" [(ngModel)]="maxPrice">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-3">
+                <select class="form-control" [(ngModel)]="City">
+                  <option value="Alex">alex selected</option>
+                  <option value="cairo">cairo</option>
+                  <option value="mansora">mansora</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select class="form-control" [(ngModel)]="type">
+                  <option value="Buy" selected>Buy</option>
+                  <option value="Rent">Rent</option>
+                  
+                </select>
+              </div>
+              <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="Address" [(ngModel)]="Address">
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col text-right" style="display: flex; justify-content: center;">
+                <button type="button" class="btn btn-primary btn-lg active" role="button" (click)="findData(1)">Search</button>
               </div>
             </div>
           </div>
         </div>
-        <div>
-          <app-our-services></app-our-services>
-        </div>
-        <div *ngFor="let item of result |paginate: { id: 'Paginate', itemsPerPage:CountPerPage , currentPage: page, totalItems: totalApartment }">
-          <app-apartment-card [id]="item.id" [title]="item.title" [address]="item.address" [area]="item.area" [miniDescription]="item.miniDescription" [bedrooms]="item.bedrooms" [bathrooms]="item.bathrooms"></app-apartment-card>
-        </div>
       </div>
-      <div class="has-text-centered">
-        <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
-        <pagination-controls (pageChange)="findData($event)" id="Paginate"></pagination-controls>
     </div>
-   
+    <br>
+    <br>
+    <br><br><br><br><br><br> <br>
+    <div *ngFor="let item of result |paginate: { id: 'Paginate', itemsPerPage:CountPerPage , currentPage: page, totalItems: totalApartment }">
+      <app-apartment-card [id]="item.id" [title]="item.title" [address]="item.address" [area]="item.area" [miniDescription]="item.miniDescription" [bedrooms]="item.bedrooms" [bathrooms]="item.bathrooms"></app-apartment-card>
     </div>
-    
+  </div>
+  <div class="has-text-centered">
+    <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
+    <pagination-controls (pageChange)="findData($event)" id="Paginate"></pagination-controls>
+</div>
+
+</div>
+</div>

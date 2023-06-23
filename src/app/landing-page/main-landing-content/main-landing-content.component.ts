@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class MainLandingContentComponent {
 
+  public flag=false;
+
+  onUserClick(flagchild:boolean){
+  this.flag=flagchild;
+  }
 }

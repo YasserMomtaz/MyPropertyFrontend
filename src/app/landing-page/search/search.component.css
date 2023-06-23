@@ -2,3 +2,18 @@
     background-image: url("./NEARLY2.jpg");
     
 }
+.HomeBackground{
+    background-image: url("../../../assets/img5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 547px;
+    
+}
+h1{
+    color: white;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 40px;
+   
+}

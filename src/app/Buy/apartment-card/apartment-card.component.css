@@ -1,3 +1,13 @@
 .pointer{
   cursor: pointer;
 }
+button{
+  background-color: #120878;
+  color: aliceblue;
+
+}
+
+button:hover {
+  background-color: #69bcc7;
+}
+

@@ -1,2 +1,12 @@
 
-<app-search></app-search>
+
+
+
+<app-search (flag) = "onUserClick($event)"></app-search>
+
+
+
+<app-our-services *ngIf="!flag"></app-our-services>  <!-- not false -->
+
+
+
