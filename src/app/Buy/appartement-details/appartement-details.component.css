@@ -1,0 +1,43 @@
+.box {
+  background-color: #ebedf1;
+   /* set the background color of the box */
+  box-shadow: 6px 6px 6px rgba(0, 0, 1, 0.532); /* set the box shadow */
+  border-radius: 8px; /* set the border-radius to create round corners */
+  padding: 20px; /* set the padding to create space between the content and the border */
+
+}
+.box1 {
+
+  height: 15rem;
+}
+
+h3{
+  text-decoration: underline;
+}
+.favorite{
+  background-color:#120878;
+color:#ffffff
+}
+.textColor{
+  color:#120878;
+ text-align:center;
+ /* font-style: italic; */
+ font-size: 4rem;
+ /* text-decoration: none; */
+font-family:Georgia, 'Times New Roman';
+}
+.cardSizes{
+  width:90%;
+  padding-left:10%;
+}
+h3{
+  color:#120878;
+}
+
+body{
+  background-color:rgb(252, 252, 252)
+}
+/* Height for devices larger than 576px */
+button:hover{
+  background-color: #5e5899;
+}

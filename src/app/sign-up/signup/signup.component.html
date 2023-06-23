@@ -1,0 +1,156 @@
+<!-- Background image -->
+<div id="intro" class="bg-image shadow-2-strong">
+  <div
+    class="mask d-flex align-items-center h-100"
+    style="background-color: rgba(0, 0, 0, 0.8)"
+  >
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-md-8">
+          <form
+            class="rounded-5 shadow-5-strong p-5"
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmit()"
+          >
+            <!-- Email input -->
+            <div class="col d-flex justify-content-center">
+              <h1>SignUp</h1>
+            </div>
+            <div>
+              <div class="form-outline mb-2">
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  formControlName="username"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="username?.touched && username?.invalid"
+                  class="text-danger"
+                >
+                  <div *ngIf="username?.errors?.['required']">
+                    Username is required
+                  </div>
+                  <div *ngIf="username?.errors?.['minlength']">
+                    Username must be at least
+                    {{ username?.errors?.['minlength'].requiredLength }}
+                    characters long
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Password input -->
+            <div>
+              <div class="form-outline mb-2">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  formControlName="email"
+                  class="form-control"
+                />
+                <div
+                  *ngIf="email?.touched && email?.invalid"
+                  class="text-danger"
+                >
+                  <div *ngIf="email?.errors?.['required']">
+                    Email is required
+                  </div>
+                  <div *ngIf="email?.errors?.['email']">
+                    Invalid email format
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-outline mb-2">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                formControlName="password"
+                class="form-control"
+              />
+              <div
+                *ngIf="password?.touched && password?.invalid"
+                class="text-danger"
+              >
+                <div *ngIf="password?.errors?.['required']">
+                  Password is required
+                </div>
+                <div *ngIf="password?.errors?.['minlength']">
+                  Password must be at least
+                  {{ password?.errors?.['minlength'].requiredLength }}
+                  characters long
+                </div>
+              </div>
+            </div>
+
+            <div class="form-outline mb-2">
+              <label for="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                formControlName="confirmPassword"
+                class="form-control"
+              />
+              <div
+                *ngIf="confirmPassword?.touched && confirmPassword?.invalid"
+                class="text-danger"
+              >
+                <div *ngIf="confirmPassword?.errors?.['required']">
+                  Confirm password is required
+                </div>
+                <div *ngIf="confirmPassword?.errors?.['matchPassword']">
+                  Passwords do not match
+                </div>
+              </div>
+            </div>
+            <div class="form-outline mb-2">
+              <label for="phoneNumber">Phone Number</label>
+              <input
+                type="text"
+                id="phoneNumber"
+                formControlName="phoneNumber"
+                class="form-control"
+              />
+              <div
+                *ngIf="phoneNumber?.touched && phoneNumber?.invalid"
+                class="text-danger"
+              >
+                <div *ngIf="phoneNumber?.errors?.['required']">
+                  Phone number is required
+                </div>
+              </div>
+            </div>
+            <div class="form-outline mb-4">
+              <label for="city">City</label>
+              <input
+                type="text"
+                id="city"
+                formControlName="city"
+                class="form-control"
+              />
+            </div>
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row ">
+              <div class="col d-flex justify-content-center">
+                <!-- Submit button -->
+                <button
+                  type="submit"
+                  [disabled]="registerForm.invalid"
+                  class="btn btn-primary"
+                >
+                  Register
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Background image -->
+
+<!--Main Navigation-->

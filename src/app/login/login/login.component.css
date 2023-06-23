@@ -1,0 +1,32 @@
+#intro {
+    background-image: url(https://mdbootstrap.com/img/new/fluid/city/008.jpg);
+    height: 100vh;
+  }
+
+  /* Height for devices larger than 576px */
+  @media (min-width: 992px) {
+    #intro {
+      margin-top: -58.59px;
+    }
+  }
+
+  .navbar .nav-link {
+    color: #fff !important;
+  }
+  button{
+    width:50%;
+  }
+  form{
+    height:auto;
+    
+    background-color: rgba(255, 255, 255,0.9);
+  }
+  h1{
+    text-decoration: underline;
+    color: rgb(34, 105, 239);
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  label{
+    color: rgb(34, 105, 239);
+  }

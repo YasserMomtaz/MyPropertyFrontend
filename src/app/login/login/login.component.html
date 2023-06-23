@@ -1,0 +1,82 @@
+<!-- Background image -->
+<div id="intro" class="bg-image shadow-2-strong">
+  <div
+    class="mask d-flex align-items-center h-100"
+    style="background-color: rgba(0, 0, 0, 0.8)"
+  >
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-md-8">
+          <form
+            class="rounded-5 shadow-5-strong p-5"
+            [formGroup]="loginform"
+            (ngSubmit)="onSubmit()"
+          >
+            <!-- Email input -->
+            <div class="col d-flex justify-content-center">
+              <h1>Login</h1>
+            </div>
+            <br />
+            <div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="userName">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  class="form-control"
+                  formControlName="username"
+                />
+              </div>
+              <div
+                *ngIf="username?.touched && username?.invalid"
+                class="alert alert-danger"
+              >
+                <div *ngIf="username?.errors?.['required']">
+                  username is required.
+                </div>
+              </div>
+            </div>
+            <!-- Password input -->
+            <div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  formControlName="password"
+                />
+              </div>
+
+              <div
+                *ngIf="password?.touched && password?.invalid"
+                class="alert alert-danger"
+              >
+                <div *ngIf="password?.errors?.['required']">
+                  Password is required.
+                </div>
+                <div *ngIf="password?.errors?.['minlength']">
+                  Password must be at least 6 characters.
+                </div>
+              </div>
+            </div>
+            <!-- 2 column grid layout for inline styling -->
+            <br />
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block">
+                  Sign in
+                </button>
+              </div>
+            </div>
+            <a routerLink="/signup">Create an account</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Background image -->
+
+<!--Main Navigation-->

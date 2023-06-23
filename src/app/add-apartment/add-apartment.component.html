@@ -1,0 +1,422 @@
+<!-- <main style="height:80%;">
+  <figure>
+    <picture>
+      <source
+        media="(min-width: 768px)"
+        srcset="
+          //my-assets.netlify.com/codepen/dailyui-001/img.png     340w,
+          //my-assets.netlify.com/codepen/dailyui-001/img@2x.png  680w,
+          //my-assets.netlify.com/codepen/dailyui-001/img@3x.png 1020w
+        "
+        sizes="360px"
+      />
+      <source
+        srcset="
+          //my-assets.netlify.com/codepen/dailyui-001/img-small.png     340w,
+          //my-assets.netlify.com/codepen/dailyui-001/img-small@2x.png  680w,
+          //my-assets.netlify.com/codepen/dailyui-001/img-small@3x.png 1020w
+        "
+        sizes="(min-width: 320px) 290px,
+                      (min-width: 480px) 435px
+                      (min-width: 640px) 580px"
+      />
+      <img
+        src="//my-assets.netlify.com/codepen/dailyui-001/img.png"
+        alt="Citymap illustration"
+      />
+    </picture>
+  </figure>
+  <div class="headline">
+    <h2 class="text-headline" style="text-decoration: underline">
+      Add Apartment
+    </h2>
+  </div>
+  <form style="padding-top: 10px" #apartform="ngForm">
+    <span>
+     
+      <input
+        class="text-body"
+        id="userid"
+        name="userid"
+        type="text"
+        required
+        placeholder="UserId"
+        [(ngModel)]="apart.userId"
+      />
+    </span>
+    <span>
+     
+      <input
+        class="text-body"
+        id="title"
+        name="title"
+        type="text"
+        required
+        placeholder="Title"
+        [(ngModel)]="apart.title"
+      />
+    </span>
+    <span>
+      
+      <input
+        class="text-body"
+        id="address"
+        name="address"
+        type="text"
+        required
+        placeholder="Address"
+        [(ngModel)]="apart.address"
+      />
+    </span>
+    <span>
+    
+      <input
+        class="text-body"
+        id="city"
+        name="city"
+        type="text"
+        required
+        placeholder="City"
+        [(ngModel)]="apart.city"
+      />
+    </span>
+    <span>
+     
+      <input
+        class="text-body"
+        id="area"
+        name="area"
+        type="number"
+        required
+        placeholder="Area"
+        [(ngModel)]="apart.area"
+      />
+    </span>
+    <span>
+  
+      <textarea
+        rows="5"
+        cols="40"
+        maxlength="100"
+        class="textarea-headline text-bod"
+        id="description"
+        name="description"
+        type="text"
+        required
+        placeholder="Description"
+        [(ngModel)]="apart.description"
+      ></textarea>
+    </span>
+    <span>
+      
+      <textarea
+        rows="5"
+        cols="40"
+        maxlength="100"
+        class="text-body"
+        id="midescription"
+        name="midescription"
+        type="text"
+        required
+        placeholder="Min Description"
+        [(ngModel)]="apart.miniDescription"
+      ></textarea>
+    </span>
+    <span>
+      
+      <input
+        class="text-body"
+        id="minprice"
+        name="minprice"
+        type="number"
+        required
+        placeholder="Min Price"
+        [(ngModel)]="apart.minPrice"
+      />
+    </span>
+    <span>
+     
+      <input
+        class="text-body"
+        id="maxprice"
+        name="maxprice"
+        type="number"
+        required
+        placeholder="Max Price"
+        [(ngModel)]="apart.maxPrice"
+      />
+    </span>
+    <span>
+     
+      <input
+        class="text-body"
+        id="type"
+        name="type"
+        type="text"
+        required
+        placeholder="Type"
+        [(ngModel)]="apart.type"
+      />
+    </span>
+    <span>
+      
+    </span>
+    <span>
+  
+      <input
+        class="text-body"
+        id="bedrooms"
+        name="bedrooms"
+        type="number"
+        required
+        placeholder="BedRooms"
+        [(ngModel)]="apart.bedrooms"
+      />
+    </span>
+    <span>
+   
+      <input
+        class="text-body"
+        id="bathrooms"
+        name="bedrooms"
+        type="number"
+        required
+        placeholder="BathRooms"
+        [(ngModel)]="apart.bathrooms"
+      /> <br>
+    </span>
+   
+    <span style="position: absolute">
+
+    <input class="form-control" type="file" multiple (change)="uploadPhoto($event)"/>
+      <input
+        class="text-small-uppercase"
+        id="submit"
+        type="submit"
+        value="Subscribe now"
+        (click)="Add()"
+      />
+    </span>
+  </form>
+</main> -->
+<!-- Tryyyyyyyyyyyyyyy -->
+
+<!--  -->
+<div class="container contact-form" style="height: 100%">
+  <form style="height: 100%"  [formGroup]="apartForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <h1>Add Apartment</h1>
+      
+      <div class="col-md-6">
+        
+        
+        <div class="form-group">
+          <input
+            class="form-control"
+            id="userid"
+            name="userid"
+            type="text"
+            required
+            placeholder="UserId"
+           
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            formControlName="title"
+            id="title"
+            name="title"
+            type="text"
+            required
+            placeholder="Title"
+          
+          />
+        <div *ngIf="apartForm.get('title')?.touched && apartForm.get('title')?.invalid" style="color:red">
+          <div *ngIf="apartForm.get('title')?.errors?.['required']">Title is required.</div>
+         
+      </div>
+        </div>
+        
+        <div class="form-group">
+          <input
+            class="form-control"
+            formControlName="address"
+            id="address"
+            name="address"
+            type="text"
+            required
+            placeholder="Address"
+          
+          />
+          <div *ngIf="apartForm.get('address')?.invalid && (apartForm.get('address')?.dirty || apartForm.get('address')?.touched)" style="color: red;">
+            <div *ngIf="apartForm.get('address')?.errors?.['required']">Address is required.</div>
+          </div>
+        </div>
+        
+
+        <div class="form-group">
+          <input
+            class="form-control"
+            id="city"
+            name="city"
+            type="text"
+            formControlName="city"
+            required
+            placeholder="City"
+          
+          />
+          <div *ngIf="apartForm.get('city')?.invalid && (apartForm.get('city')?.dirty || apartForm.get('city')?.touched)" style="color:red">
+            <div *ngIf="apartForm.get('city')?.errors?.['required']">City is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            id="area"
+            name="area"
+            type="number"
+            formControlName="area"
+            required
+            placeholder="Area"
+        
+          />
+          <div *ngIf="apartForm.get('area')?.invalid && (apartForm.get('area')?.dirty || apartForm.get('area')?.touched)" style="color:red">
+            <div *ngIf="apartForm.get('area')?.errors?.['required']">Area is required.</div>
+            <div *ngIf="apartForm.get('area')?.errors?.['min']">Area must be greater than or equal to 0.</div>
+          </div>
+        </div>
+       <div class="form-group">
+          <input
+            class="form-control"
+            id="minprice"
+            name="minprice"
+            type="number"
+            formControlName="minprice"
+            required
+            placeholder="Min Price"
+      
+          />
+          <div *ngIf="apartForm.get('minprice')?.invalid && (apartForm.get('minprice')?.dirty || apartForm.get('minprice')?.touched)" style="color: red;">
+            <div *ngIf="apartForm.get('minprice')?.errors?.['required']">Min Price is required.</div>
+            <div *ngIf="apartForm.get('minprice')?.errors?.['min']">Min Price must be greater than or equal to 0.</div>
+          </div>
+        </div>
+       <div class="form-group">
+          <input
+            class="form-control"
+            id="maxprice"
+            name="maxprice"
+            type="number"
+            formControlName="maxprice"
+            required
+            placeholder="Max Price"
+          
+          />
+          <div *ngIf="apartForm.get('maxprice')?.invalid && (apartForm.get('maxprice')?.dirty || apartForm.get('maxprice')?.touched)" style="color:red">
+            <div *ngIf="apartForm.get('maxprice')?.errors?.['required']">Max Price is required.</div>
+            <div *ngIf="apartForm.get('maxprice')?.errors?.['min']">Max Price must be greater than or equal to 0.</div>
+          </div>
+        </div>
+       <div class="form-group">
+          <input
+            class="form-control"
+            id="type"
+            name="type"
+            type="text"
+            formControlName="type"
+            required
+            placeholder="Type"
+      
+          />
+          <div *ngIf="apartForm.get('type')?.invalid && (apartForm.get('type')?.dirty || apartForm.get('type')?.touched)" style="color:red ;">
+            <div *ngIf="apartForm.get('type')?.errors?.['required']">Type is required.</div>
+          </div>
+        </div>
+       <div class="form-group">
+          <input
+            class="form-control"
+            id="bedrooms"
+            name="bedrooms"
+            type="number"
+            formControlName="bedrooms"
+            required
+            placeholder="BedRooms"
+          
+          />
+          <div *ngIf="apartForm.get('bedrooms')?.invalid && (apartForm.get('bedrooms')?.dirty || apartForm.get('bedrooms')?.touched)" style="color:red">
+            <div *ngIf="apartForm.get('bedrooms')?.errors?.['required']">Bedrooms is required.</div>
+            <div *ngIf="apartForm.get('bedrooms')?.errors?.['min']">Bedrooms must be greater than or equal to 0.</div>
+        </div>
+      </div>
+      </div>
+     <div class="col-md-6">
+        <div class="form-group">
+          <input
+            class="form-control"
+            id="bathrooms"
+            name="bathrooms"
+            formControlName="bathrooms"
+            type="number"
+            required
+            placeholder="BathRooms"
+          
+          />
+          <div *ngIf="apartForm.get('bathrooms')?.invalid && (apartForm.get('bathrooms')?.dirty || apartForm.get('bathrooms')?.touched)" style="color:red">
+            <div *ngIf="apartForm.get('bathrooms')?.errors?.['required']">Bathrooms is required.</div>
+            <div *ngIf="apartForm.get('bathrooms')?.errors?.['min']">Bathrooms must be greater than or equal to 0.</div>
+          </div>
+        </div>
+       <div class="form-group">
+          <input class="form-control" 
+          type="file" 
+          name="file"
+          formControlName="file"
+          multiple 
+          (change)="uploadPhoto($event)"/>
+
+        </div>
+       <div class="form-group">
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            type="text"
+            formControlName="description"
+            required
+            placeholder="Description"
+            
+            style="width: 100%; height: 150px"
+          ></textarea>
+          <div *ngIf="apartForm.get('description')?.invalid && (apartForm.get('description')?.dirty || apartForm.get('description')?.touched)"style="color:red">
+            <div *ngIf="apartForm.get('description')?.errors?.['required']">Description is required.</div>
+          </div>
+        </div>
+       <div class="form-group">
+          <textarea
+            class="form-control"
+            id="midescription"
+            name="midescription"
+            type="text"
+            formControlName="midescription"
+            required
+            placeholder="Min Description"
+            style="width: 100%; height: 150px"
+          ></textarea>
+          <div *ngIf="apartForm.get('midescription')?.invalid && (apartForm.get('midescription')?.dirty || apartForm.get('midescription')?.touched)"style="color:red">
+            <div *ngIf="apartForm.get('midescription')?.errors?.['required']">Description is required.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input
+            type="submit"
+            id="submit"
+            value="Subscribe now"
+            
+          />
+        </div>
+      <br>
+    </div> 
+    </div>
+  </form>
+</div>

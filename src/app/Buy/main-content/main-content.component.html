@@ -1,0 +1,55 @@
+
+<div class="container-fluid d-flex flex-column justify-content-center">
+
+  <h1>
+      main properties in egypt
+  </h1>
+  
+  <div class="container text-center" >
+
+  <div class="row justify-content-md-center mt-5">
+
+      <h1>buyed Appartments</h1>
+      <div class="col-4">
+       <button type="button" class="btn btn-info"><i class="fa fa-star" aria-hidden="true"></i> Save search</button>
+      </div>
+      <div class="col-8">
+          Sort by:
+          <select class=" form-select-md" aria-label="Default select example">
+              <option selected>price (low)</option>
+              <option value="1">price (high)</option>
+              <option value="2">Delviary date(soon)</option>
+              <option value="3">Delviary date(late)</option>
+            </select>
+      </div>
+  </div>
+
+  </div>
+
+
+
+        <div class="col-12" *ngFor="let item of apartments |paginate: { id: 'Paginate', itemsPerPage:CountPerPage , currentPage: page, totalItems: totalApartment }">
+
+          <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
+            <div class="container-fluid">
+              <div class="row justify-content-md-center mt-3 card_conatiner">
+                <app-apartment-card (pageChange)="GetApartments($event)" [id]="item.id" [title]="item.title" [address]="item.address" [area]="item.area" [miniDescription]="item.miniDescription" [bedrooms]="item.bedrooms" [bathrooms]="item.bathrooms"  [photos]="item.photos">>></app-apartment-card>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+        <div class="has-text-centered">
+          <div class="spinner" [ngClass]="{ 'hidden': !loading }"></div>
+          <pagination-controls (pageChange)="GetApartments($event)" id="Paginate"></pagination-controls>
+      </div>
+      <div>
+        <h1>Gap</h1>
+      </div>
+
+
+</div>
+
+
+
