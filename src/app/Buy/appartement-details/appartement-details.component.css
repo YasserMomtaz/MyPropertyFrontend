@@ -1,0 +1,20 @@
+.box {
+  background-color: #ffffff; /* set the background color of the box */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.16); /* set the box shadow */
+  border-radius: 8px; /* set the border-radius to create round corners */
+  padding: 20px; /* set the padding to create space between the content and the border */
+
+}
+.box1 {
+
+  height: 15rem;
+}
+
+h3{
+  text-decoration: underline;
+}
+.favorite{
+  background-color: #ef5e4e;
+}
+
+

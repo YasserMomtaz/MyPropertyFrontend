@@ -1,0 +1,113 @@
+<div class="card mb-3" class="offset-lg-3 offset-1 col-lg-6 col-10">
+  <!-- coursel -->
+  <div id="carouselExample" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div
+        class="carousel-item"
+        *ngFor="let photo of Apartment?.photos; let i = index"
+        [class.active]="i === activeSlideIndex"
+      >
+        <img src="{{ photo }}" class="d-block w-100" alt="Slide {{ i + 1 }}" />
+      </div>
+    </div>
+    <a
+      class="carousel-control-prev"
+      role="button"
+      data-slide="prev"
+      (click)="prevSlide()"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      role="button"
+      data-slide="next"
+      (click)="nextSlide()"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+  
+  
+  <div class="row justify-content-center offset-lg-1 col-lg-10 col-sm-11">
+    <div class="card my-3 ms-3 me-4 col-lg-10 col-11 box">
+      <div class="card-body row">
+        <h3 class="card-title ms-4 col-4 col-sm-10">{{ Apartment?.title }}</h3>
+      </div>
+      <div class="card-body row">
+        <h5 class="card-title offset-1 col-lg-2">
+          Price: {{ Apartment?.maxPrice | currency }}
+        </h5>
+        <h5 class="card-title offset-1 col-lg-2">
+          Area: {{ Apartment?.area }}m<sup>2</sup
+          ><i class="fa fa-area-chart ms-1" aria-hidden="true"></i>
+        </h5>
+        <h5 class="card-text offset-1 col-lg-2">
+          Rooms: {{ Apartment?.bedrooms
+          }}<i class="fa fa-bed ms-1" aria-hidden="true"></i>
+        </h5>
+        <h5 class="card-text offset-sm-1 col-lg-2 offset-lg-0">
+          Baths: {{ Apartment?.bathrooms
+          }}<i class="fa fa-bathtub ms-1" aria-hidden="true"></i>
+        </h5>
+      </div>
+      <div class="card-body row mt-1">
+        <h5 class="card-title offset-1 col-lg-2 mt-3">
+          City: {{ Apartment?.city }}
+        </h5>
+        <h5 class="card-title offset-1 col-lg-3 mt-3">
+          Publish Date: {{ Apartment?.adDate | date }}
+        </h5>
+        <h5 class="card-title col-lg-2 offset-sm-1 mt-3 offset-lg-0">
+          Views: {{ Apartment?.viewsCount }}
+        </h5>
+        <h5 class="card-text offset-lg-0 col-lg-2 offset-sm-1 mt-3">
+          Address: {{ Apartment?.address }}
+        </h5>
+        <div class="row justify-content-center">
+            <button  class=" col-lg-3 mt-5" (click)="BackToList()" >Back to Request List</button>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  
+  <div class="row justify-content-center offset-lg-1 col-lg-10 col-sm-11">
+    <div class="card my-3 ms-3 me-4 col-lg-8 col-11 box box1">
+      <div class="card-body row">
+        <h3 class="card-title ms-4">Description</h3>
+      </div>
+      <div class="card-body row">
+        <h4 class="card-title ms-3 mt-1">{{ Apartment?.description }}</h4>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center offset-lg-1 col-lg-10 col-sm-11">
+    <div class="card my-3 ms-3 me-4 col-lg-8 col-11 box box1">
+      <div class="card-body row">
+        <h3 class="card-title ms-4">For More Info</h3>
+      </div>
+      <div class="card-body row">
+        <h5 class="card-title col-lg-3 ms-lg-5">
+          Phone: {{ Apartment?.brokerPhone }} <i class="fas fa-phone"></i>
+        </h5>
+        <h5 class="card-title col-lg-4 ms-lg-5">
+          <i class="fa fa-mail-forward" aria-hidden="true"></i>
+          Email: {{ Apartment?.brokerEmail }}
+        </h5>
+        <h5 class="card-title col-lg-3 ms-lg-2">Code: {{ Apartment?.code }}</h5>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+ 
+ 
+  
+  <!-- modal for sell -->
+ 
+ 
