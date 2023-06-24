@@ -17,6 +17,7 @@ export class AddManagerComponent {
   Add(){
       this.manSer.add(this.nmanager).subscribe(a=>{
         console.log(a);
+        this.router.navigateByUrl("/mainpage")
       
       },er=>{
         console.log(er)

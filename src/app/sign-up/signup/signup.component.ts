@@ -1,28 +1,35 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Signup } from 'src/app/_models/Signup';
-import {SignupService} from'src/app/Services/signup.service';
+import { Component } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { Signup } from "src/app/_models/Signup";
+import { SignupService } from "src/app/Services/signup.service";
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: "app-signup",
+  templateUrl: "./signup.component.html",
+  styleUrls: ["./signup.component.css"],
 })
 export class SignupComponent {
   registerForm: FormGroup;
   user: Signup = new Signup();
 
-  constructor(private formBuilder: FormBuilder,private signup:SignupService, private route:Router) { 
-    this.registerForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-      city: ['']
-    }, {
-      validator: this.matchPassword('password', 'confirmPassword')
-    });  
+  constructor(
+    private formBuilder: FormBuilder,
+    private signup: SignupService,
+    private route: Router
+  ) {
+    this.registerForm = this.formBuilder.group(
+      {
+        username: ["", [Validators.required, Validators.minLength(3)]],
+        email: ["", [Validators.required, Validators.email]],
+        password: ["", [Validators.required, Validators.minLength(6)]],
+        confirmPassword: ["", Validators.required],
+        phoneNumber: ["", Validators.required],
+        city: [""],
+      },
+      {
+        validator: this.matchPassword("password", "confirmPassword"),
+      }
+    );
   }
   matchPassword(password: string, confirmPassword: string) {
     return (formGroup: FormGroup) => {
@@ -37,31 +44,41 @@ export class SignupComponent {
     };
   }
 
-  get username() { return this.registerForm.get('username'); }
-  get email() { return this.registerForm.get('email'); }
-  get password() { return this.registerForm.get('password'); }
-  get confirmPassword() { return this.registerForm.get('confirmPassword'); }
-  get phoneNumber() { return this.registerForm.get('phoneNumber'); }
+  get username() {
+    return this.registerForm.get("username");
+  }
+  get email() {
+    return this.registerForm.get("email");
+  }
+  get password() {
+    return this.registerForm.get("password");
+  }
+  get confirmPassword() {
+    return this.registerForm.get("confirmPassword");
+  }
+  get phoneNumber() {
+    return this.registerForm.get("phoneNumber");
+  }
 
   onSubmit() {
     if (this.registerForm.valid) {
-      this.user.UserName = this.registerForm.get('username')?.value;
-      this.user.Email = this.registerForm.get('email')?.value;
-      this.user.Password = this.registerForm.get('password')?.value;
-      this.user.PhoneNumber = this.registerForm.get('phoneNumber')?.value;
-      this.user.City = this.registerForm.get('city')?.value;
+      this.user.UserName = this.registerForm.get("username")?.value;
+      this.user.Email = this.registerForm.get("email")?.value;
+      this.user.Password = this.registerForm.get("password")?.value;
+      this.user.PhoneNumber = this.registerForm.get("phoneNumber")?.value;
+      this.user.City = this.registerForm.get("city")?.value;
       console.log(this.user); // Log the user object
       this.signup.register(this.user).subscribe({
         next: (response) => {
-            this.route.navigateByUrl("/mainpage")
+          this.route.navigateByUrl("/login");
         },
         error: (error) => {
-          console.log('Register failed');
+          console.log("Register failed");
           alert("Register failed");
           console.log(error); // Log the error object
-        }
+        },
       });
-      
+
       // Call your backend API to register the user using the user object
       // You can use the HttpClient module to make the HTTP request
     } else {
