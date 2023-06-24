@@ -1,27 +1,53 @@
 <nav>
   <ul>
-
     <li><a routerLink="">Home</a></li>
-    <li><a  routerLink="/buy">Buy</a></li>
+    <li><a routerLink="/buy">Buy</a></li>
     <li><a routerLink="/rent">Rent</a></li>
-    <li><a routerLink="/addapartment">Sell</a></li>
-    <li><a routerLink="/brokerapartment">Assigned Apartments</a></li>
 
-    <li class="dropdown">
-      <a href="#" class="dropdown-btn">Services</a>
+    <!-- will be changed in guard -->
+    <li *ngIf="authorized.isAuthorized && authorized.Role == 'User'">
+      <a routerLink="/addapartment">Sell</a>
+    </li>
+    <li *ngIf="authorized.isAuthorized && authorized.Role == 'Broker'">
+      <a routerLink="/brokerapartment">Assigned Apartments</a>
+    </li>
+
+    <li class="dropdown" *ngIf="authorized.isAuthorized && authorized.Role == 'Admin'">
+      <a routerLink="/mainpage" class="dropdown-btn">Services</a>
       <div class="dropdown-content">
-        <a routerLink="/requests">Show Requests</a>
-        <a routerLink="/addmanager">Add Manager</a>
-        <a routerLink="/addbroker">Add Broker</a>
+        <a
+          *ngIf="authorized.isAuthorized && authorized.Role == 'Admin'"
+          routerLink="/requests"
+          >Show Requests</a
+        >
+        <a
+          *ngIf="authorized.isAuthorized && authorized.Role == 'Admin'"
+          routerLink="/addmanager"
+          >Add Manager</a
+        >
+        <a
+          *ngIf="authorized.isAuthorized && authorized.Role == 'Admin'"
+          routerLink="/addbroker"
+          >Add Broker</a
+        >
       </div>
     </li>
 
-    <li><a routerLink="/favlist"><i class="fa fa-heart"></i></a></li>
+    <!-- will be changed in guard -->
+    <li *ngIf="authorized.isAuthorized && authorized.Role == 'User'">
+      <a routerLink="/favlist"><i class="fa fa-heart"></i></a>
+    </li>
 
+    <button *ngIf="!authorized.isAuthorized" routerLink="/login" class="btn">
+      Login
+    </button>
 
-<button  routerLink="/login" class="btn"> Login </button>
+    <button *ngIf="authorized.isAuthorized" class="btn" (click)="logout()">
+      Logout
+    </button>
 
-<button routerLink="/signup" class="btn"> Register </button>
-
+    <button *ngIf="!authorized.isAuthorized" routerLink="/signup" class="btn">
+      Register
+    </button>
   </ul>
 </nav>

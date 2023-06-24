@@ -15,70 +15,79 @@ import { BrokerapartmentComponent } from './brokerapartment/brokerapartment.comp
 import { LoginComponent } from './login/login/login.component';
 import { SignupComponent } from './sign-up/signup/signup.component';
 import { RequestDetailsComponent } from './requests/request-details/request-details.component';
+import { adminGuardGuard } from './Guards/admin-guard.guard';
+import { userGuardGuard } from './Guards/user-guard.guard';
+import { brokerGuardGuard } from './Guards/broker-guard.guard';
 
 
 
 const routes: Routes = [
   {
-    path: 'requests',
+    path: "requests",
+    canActivate: [adminGuardGuard],
     component: ShowRequestsComponent,
   },
   {
-    path: 'requests/requestDetails',
+    path: "requests/requestDetails",
     component: RequestDetailsComponent,
   },
   {
-    path: 'mainpage',
+    path: "mainpage",
     component: MainLandingContentComponent,
   },
   {
-    path: 'buy',
+    path: "buy",
     component: MainContentComponent,
   },
   {
-    path: 'addapartment',
+    path: "addapartment",
+    canActivate: [userGuardGuard],
     component: AddApartmentComponent,
   },
 
   {
-    path: 'favlist',
+    path: "favlist",
+    canActivate: [userGuardGuard],
     component: FavListApartmentComponent,
   },
 
   {
-    path: '',
-    redirectTo: 'mainpage',
-    pathMatch: 'full',
+    path: "",
+    redirectTo: "mainpage",
+    pathMatch: "full",
   },
   {
-    path: 'rent',
+    path: "rent",
     component: RentMainContentComponent,
   },
   {
-
-    path: 'appartementDetails',
+    path: "appartementDetails",
     component: AppartementDetailsComponent,
-  },{
-
-    path:"addmanager",component: AddManagerComponent
+  },
+  {
+    path: "addmanager",
+    canActivate: [adminGuardGuard],
+    component: AddManagerComponent,
   },
 
   {
-    path:"addbroker",component: AddBrokerComponent
+    path: "addbroker",
+    canActivate: [adminGuardGuard],
+    component: AddBrokerComponent,
   },
   {
-    path:'login',
+    path: "login",
     component: LoginComponent,
   },
   {
-    path:'signup',
+    path: "signup",
     component: SignupComponent,
   },
   {
-    path:"brokerapartment",component: BrokerapartmentComponent
+    path: "brokerapartment",
+    canActivate: [brokerGuardGuard],
+    component: BrokerapartmentComponent,
   },
-
-
 ];
 
 
