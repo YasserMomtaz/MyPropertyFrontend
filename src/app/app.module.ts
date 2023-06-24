@@ -12,7 +12,7 @@ import { AddManagerComponent } from './add-manager/add-manager.component';
 import { AddBrokerComponent } from './add-broker/add-broker.component';
 import { LandingPageModule } from './landing-page/landing-page.module';
 import { ApartmentService } from './Services/apartment.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddApartmentComponent } from './add-apartment/add-apartment.component';
 import { RequestsModule } from './requests/requests.module';
@@ -20,10 +20,17 @@ import { LoginModule } from './login/login.module';
 import {SignupModule} from'./sign-up/signup.module';
 import { BrokerapartmentComponent } from './brokerapartment/brokerapartment.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { TokenInterceptor } from 'TokenInterceptor';
 
 @NgModule({
-  declarations: [AppComponent, RequestlistComponent, AddApartmentComponent,AddManagerComponent,
-    AddBrokerComponent,  BrokerapartmentComponent],
+  declarations: [
+    AppComponent,
+    RequestlistComponent,
+    AddApartmentComponent,
+    AddManagerComponent,
+    AddBrokerComponent,
+    BrokerapartmentComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,12 +39,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
     RouterModule,
     LandingPageModule,
     HttpClientModule,
-    RequestsModule,LoginModule,
-    
+    RequestsModule,
+    LoginModule,
+
     SignupModule,
     NgxPaginationModule,
   ],
-  providers: [ApartmentService],
+  providers: [
+    ApartmentService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
