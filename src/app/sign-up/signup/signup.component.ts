@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Signup } from 'src/app/_models/Signup';
 import {SignupService} from'src/app/Services/signup.service';
 @Component({
@@ -11,7 +12,7 @@ export class SignupComponent {
   registerForm: FormGroup;
   user: Signup = new Signup();
 
-  constructor(private formBuilder: FormBuilder,private signup:SignupService) { 
+  constructor(private formBuilder: FormBuilder,private signup:SignupService, private route:Router) { 
     this.registerForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -52,10 +53,7 @@ export class SignupComponent {
       console.log(this.user); // Log the user object
       this.signup.register(this.user).subscribe({
         next: (response) => {
-          console.log('Register successful');
-          alert("Register successful");
-          console.log(response); // Log the response object
-          // Store the token in your session/local storage
+            this.route.navigateByUrl("/mainpage")
         },
         error: (error) => {
           console.log('Register failed');

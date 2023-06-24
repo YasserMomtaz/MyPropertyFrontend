@@ -31,14 +31,14 @@
             <div class="row mt-3">
               <div class="col-md-3">
                 <select class="form-control" [(ngModel)]="City">
-                  <option value="Alex">alex selected</option>
-                  <option value="cairo">cairo</option>
-                  <option value="mansora">mansora</option>
+                  <option value="Alexandria" >Alexandria</option>
+                  <option value="Cairo">Cairo</option>
+                  <option value="mansora">Mansora</option>
                 </select>
               </div>
               <div class="col-md-3">
                 <select class="form-control" [(ngModel)]="type">
-                  <option value="Buy" selected>Buy</option>
+                  <option value="Buy">Buy</option>
                   <option value="Rent">Rent</option>
                   
                 </select>
@@ -60,7 +60,7 @@
     <br>
     <br><br><br><br><br><br> <br>
     <div *ngFor="let item of result |paginate: { id: 'Paginate', itemsPerPage:CountPerPage , currentPage: page, totalItems: totalApartment }">
-      <app-apartment-card [id]="item.id" [title]="item.title" [address]="item.address" [area]="item.area" [miniDescription]="item.miniDescription" [bedrooms]="item.bedrooms" [bathrooms]="item.bathrooms" [IsFavorite]="item.isFavorite"></app-apartment-card>
+      <app-apartment-card [id]="item.id" [title]="item.title" [address]="item.address" [area]="item.area" [miniDescription]="item.miniDescription" [bedrooms]="item.bedrooms" [bathrooms]="item.bathrooms"></app-apartment-card>
     </div>
   </div>
   <div class="has-text-centered">
