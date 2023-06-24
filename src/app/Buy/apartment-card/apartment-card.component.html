@@ -57,10 +57,17 @@
 
     <div class="d-flex flex-row-reverse">
       <div class="p-2">
-        <button type="button" class="btn btn-info" (click)="AddToFav(id)">
+        <button type="button" class="btn btn-info" (click)="AddToFav(id)" *ngIf="!IsFavorite;else templateName">
           <i class="fa fa-heart" aria-hidden="true"></i> Add To Favorite
         </button>
       </div>
+        <ng-template #templateName>
+          <div class="p-2">
+            <button type="button" class="btn btn-info" (click)="RemoveFromFav(id)" >
+              <i class="fa fa-heart" aria-hidden="true"></i> Remove From Favorite
+            </button>
+          </div>
+        </ng-template>
       <div class="p-2">
 
     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#deleteModal">

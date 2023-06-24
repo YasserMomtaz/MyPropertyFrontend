@@ -13,9 +13,10 @@ import { Subscription } from 'rxjs';
 })
 export class AppartementDetailsComponent implements OnInit {
   sub: Subscription | null = null;
-  Apartment: Apartment | any = null;
+  _date:Date = new Date();
+  Apartment: Apartment  =  new Apartment(0,"","","","","","",0,0,0,"",[],1,"",this._date,'',"",false);
   private response: any;
-  public notFavorite: boolean = true; // will use it later
+  public IsFavorite: boolean = true; // will use it later
   public Price: number=0;
   constructor(
     private appartementService: ApartmentService,
@@ -27,13 +28,22 @@ export class AppartementDetailsComponent implements OnInit {
     this.sub = this.Router.queryParams.subscribe((data) => {
       this.appartementService.GetDetails(data['id']).subscribe((data) => {
         this.Apartment = data;
+        console.log(this.Apartment);
       });
     });
   }
   AddToFav(id: number) {
     this.appartementService.AddToFav(id).subscribe((response: Response) => {
       this.response = response;
-      this.notFavorite = false;
+      this.IsFavorite = true;
+      this.Apartment.isFavorite=true;
+    });
+  }
+  RemoveFromFav(id:number){
+    this.appartementService.RemoveFromFav(id).subscribe((response: Response) => {
+      this.response = response;
+      this.Apartment.isFavorite=false;
+      this.IsFavorite=false;
     });
   }
   activeSlideIndex = 0;

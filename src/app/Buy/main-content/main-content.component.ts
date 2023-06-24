@@ -17,7 +17,7 @@ export class MainContentComponent implements OnInit {
   public loading: boolean=true;
 
   GetApartments(page:any){
-    this.apartService.getData(page,this.CountPerPage).subscribe({next:(data) => {
+    this.apartService.getBuyData(page,this.CountPerPage).subscribe({next:(data) => {
       this.apartments = data.apartmentList;
       this.totalApartment=data.apartmentCount;
       console.log(data);
