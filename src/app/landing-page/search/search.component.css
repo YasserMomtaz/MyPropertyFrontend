@@ -3,7 +3,7 @@
     
 }
 .HomeBackground{
-    /* background-image: url("../../../assets/img5.jpg"); */
+     background-image: url("../../../assets/img5.jpg"); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,3 +17,16 @@ h1{
     font-size: 40px;
    
 }
+.searchbar{
+    background-color: rgba(252, 252, 252, 0.534);
+    border-radius: 25px;
+}
+.btn{
+   background-color:  #152B40;
+   color: white;
+}
+.btn:hover {
+    /* background-color: #0d6efd; */
+     background-color: #1352b1c4 ; /* Change to your desired hover background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); /* Add your desired box shadow */
+  }

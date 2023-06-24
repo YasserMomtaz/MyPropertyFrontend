@@ -12,14 +12,21 @@
       <a routerLink="/brokerapartment">Assigned Apartments</a>
     </li>
 
-    <li class="dropdown" *ngIf="authorized.isAuthorized && authorized.Role == 'Admin'">
+    <!-- <li class="dropdown" *ngIf="authorized.isAuthorized && authorized.Role == 'Admin'"> -->
+      <li class="dropdown">
       <a routerLink="/mainpage" class="dropdown-btn">Services</a>
       <div class="dropdown-content">
-        <a
-          *ngIf="authorized.isAuthorized && authorized.Role == 'Admin'"
+
+        <a > Show Requests</a>
+        <a> Add Manager</a>
+        <a>Add Broker</a>
+        <a routerLink="/dashboard">Dashboard</a>
+        <!-- <a
+         *ngIf="authorized.isAuthorized && authorized.Role == 'Admin'"
           routerLink="/requests"
           >Show Requests</a
-        >
+        > 
+
         <a
           *ngIf="authorized.isAuthorized && authorized.Role == 'Admin'"
           routerLink="/addmanager"
@@ -28,8 +35,8 @@
         <a
           *ngIf="authorized.isAuthorized && authorized.Role == 'Admin'"
           routerLink="/addbroker"
-          >Add Broker</a
-        >
+          >Add Broker</a> -->
+          
       </div>
     </li>
 

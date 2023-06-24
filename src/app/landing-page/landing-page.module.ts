@@ -10,16 +10,17 @@ import { FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 import { OurServicesComponent } from '../our-services/our-services.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     SearchComponent,
-    MainLandingContentComponent,FooterComponent, NavbarComponent,OurServicesComponent
+    MainLandingContentComponent,FooterComponent, NavbarComponent,OurServicesComponent, DashboardComponent
   ],
   imports: [
     CommonModule,RouterModule,BuyModule,FormsModule,NgxPaginationModule
   ],
   exports:[
-    SearchComponent,NavbarComponent,FooterComponent
+    SearchComponent,NavbarComponent,FooterComponent,DashboardComponent
   ]
 })
 export class LandingPageModule { }

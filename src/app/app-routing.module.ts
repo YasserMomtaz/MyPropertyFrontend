@@ -18,13 +18,14 @@ import { RequestDetailsComponent } from './requests/request-details/request-deta
 import { adminGuardGuard } from './Guards/admin-guard.guard';
 import { userGuardGuard } from './Guards/user-guard.guard';
 import { brokerGuardGuard } from './Guards/broker-guard.guard';
+import { DashboardComponent } from './landing-page/dashboard/dashboard.component';
 
 
 
 const routes: Routes = [
   {
     path: "requests",
-    canActivate: [adminGuardGuard],
+    // canActivate: [adminGuardGuard],
     component: ShowRequestsComponent,
   },
   {
@@ -66,13 +67,13 @@ const routes: Routes = [
   },
   {
     path: "addmanager",
-    canActivate: [adminGuardGuard],
+    // canActivate: [adminGuardGuard],
     component: AddManagerComponent,
   },
 
   {
     path: "addbroker",
-    canActivate: [adminGuardGuard],
+    // canActivate: [adminGuardGuard],
     component: AddBrokerComponent,
   },
   {
@@ -88,6 +89,10 @@ const routes: Routes = [
     canActivate: [brokerGuardGuard],
     component: BrokerapartmentComponent,
   },
+  {
+    path: "dashboard",
+    component:DashboardComponent
+  }
 ];
 
 
