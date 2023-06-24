@@ -22,6 +22,7 @@ import { BrokerapartmentComponent } from './brokerapartment/brokerapartment.comp
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TokenInterceptor } from 'TokenInterceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { TokenInterceptor } from 'TokenInterceptor';
     AddManagerComponent,
     AddBrokerComponent,
     BrokerapartmentComponent,
+    
   ],
   imports: [
     BrowserModule,

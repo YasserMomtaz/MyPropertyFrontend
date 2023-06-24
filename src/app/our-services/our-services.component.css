@@ -16,7 +16,7 @@
     scale: 1.1;
   }
   .btn:hover {
-    background-color: #0d6efd; /* Change to your desired hover background color */
+    background-color: #1352b1c4; /* Change to your desired hover background color */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); /* Add your desired box shadow */
   }
 /* *{
@@ -25,10 +25,14 @@ border: 2px solid red;
 .textColor{
     font-size: 24px;
     font-weight: bold;
-    color: #120878;
+    color: #152B40;
 }
 .btn{
     padding: 7px 18px;
     font-size: 20px;
-    background-color: #120878 ;
+    background-color: #152B40 ;
+}
+.h11{
+   color: #152B40;
+   font-size: 45px;
 }
