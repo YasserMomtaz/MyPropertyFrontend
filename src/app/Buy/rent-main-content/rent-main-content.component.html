@@ -21,7 +21,7 @@
       <div class="col-md-6 mb-4" *ngFor="let item of apartments | paginate: { id: 'Paginate', itemsPerPage: CountPerPage , currentPage: page, totalItems: totalApartment }">
         <div class="card h-100">
           <div class="card-body">
-            <app-apartment-card (pageChange)="GetApartments($event)" [id]="item.id" [title]="item.title" [address]="item.address" [area]="item.area" [miniDescription]="item.miniDescription" [bedrooms]="item.bedrooms" [bathrooms]="item.bathrooms" [photos]="item.photos">>></app-apartment-card>
+            <app-apartment-card (pageChange)="GetApartments($event)" [id]="item.id" [title]="item.title" [address]="item.address" [area]="item.area" [miniDescription]="item.miniDescription" [bedrooms]="item.bedrooms" [bathrooms]="item.bathrooms" [photos]="item.photos" [IsFavorite]="item.isFavorite">>></app-apartment-card>
           </div>
         </div>
       </div>

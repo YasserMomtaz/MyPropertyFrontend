@@ -27,12 +27,20 @@ export class ApartmentCardComponent {
   @Input() bedrooms: number = 1;
   @Input() miniDescription: string = '';
   @Input() photos: string[] = [];
+  @Input() IsFavorite:boolean|null=null;
 
   constructor(private apartService: ApartmentService, private route: Router) {}
   @Output() refreshParent: EventEmitter<boolean> = new EventEmitter<boolean>();
   AddToFav(id: number) {
     this.apartService.AddToFav(id).subscribe((response: Response) => {
       this.response = response;
+      this.IsFavorite=true;
+    });
+  }
+  RemoveFromFav(id:number){
+    this.apartService.RemoveFromFav(id).subscribe((response: Response) => {
+      this.response = response;
+      this.IsFavorite=false;
     });
   }
   activeSlideIndex = 0;

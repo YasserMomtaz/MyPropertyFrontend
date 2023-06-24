@@ -8,7 +8,7 @@ import { Apartment } from 'src/app/_models/Apartment';
   styleUrls: ['./fav-list-apartment.component.css']
 })
 export class FavListApartmentComponent {
-  public apartments: any[] = [];
+  public apartments:Apartment[] = [];
 
   constructor(private apartService: ApartmentService) { }
 

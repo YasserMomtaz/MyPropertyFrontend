@@ -15,7 +15,7 @@ export class ApartmentService {
   url:string='https://localhost:7080/search/';
   private apiUrlBuy = 'https://localhost:7080/buy/';
   private apiUrlRent = 'https://localhost:7080/rent/';
-
+  private apiURLRemoveFav = 'https://localhost:7080/removeFromFavorite/'
   private apiUrlAddFav = 'https://localhost:7080/addtofavorite/';
   private apiUrlFavList = 'https://localhost:7080/allfavorites';
   private apiGetDetails = 'https://localhost:7080/';
@@ -25,7 +25,7 @@ export class ApartmentService {
 
   constructor(private http: HttpClient) { }
 
-  getData(Page:number,CountPerPage:number): Observable<ApartmentListPaginationDto> {
+  getBuyData(Page:number,CountPerPage:number): Observable<ApartmentListPaginationDto> {
     return this.http.get<ApartmentListPaginationDto>(this.apiUrlBuy+Page+"/"+CountPerPage);
 
   }
@@ -41,6 +41,12 @@ export class ApartmentService {
     return this.http.post<any>(this.apiUrlAddFav + apartid, body, {
       observe: 'response',
     });
+  }
+
+  RemoveFromFav(apartid: number): Observable<any> {
+    const body = { apartid };
+    console.log(body);
+    return this.http.delete<any>(this.apiURLRemoveFav + apartid);
   }
 
   GetFav(): Observable<any> {

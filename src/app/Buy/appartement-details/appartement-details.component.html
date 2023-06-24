@@ -3,7 +3,7 @@
 <div class="row justify-content-center offset-lg-1 col-lg-10 col-sm-11 box" >
   <div class="card" style="background-color:rgb(252, 252, 252)">
     <div class="card-body row">
-      <h3 class="card-title  textColor">{{ Apartment?.title }}</h3>
+      <h3 class="card-title  textColor">{{ Apartment.title }}</h3>
     </div>
     <div class="cardSizes">
       <div class="card">
@@ -42,33 +42,33 @@
     <br>
     <div class="card-body row">
       <h5 class="card-title offset-1 col-lg-2">
-        Price: {{ Apartment?.maxPrice | currency }}
+        Price: {{ Apartment.maxPrice | currency }}
       </h5>
       <h5 class="card-title offset-1 col-lg-2">
-        Area: {{ Apartment?.area }}m<sup>2</sup
+        Area: {{ Apartment.area }}m<sup>2</sup
         ><i class="fa fa-area-chart ms-1" aria-hidden="true"></i>
       </h5>
       <h5 class="card-text offset-1 col-lg-2">
-        Rooms: {{ Apartment?.bedrooms
+        Rooms: {{ Apartment.bedrooms
         }}<i class="fa fa-bed ms-1" aria-hidden="true"></i>
       </h5>
       <h5 class="card-text offset-sm-1 col-lg-2 offset-lg-0">
-        Baths: {{ Apartment?.bathrooms
+        Baths: {{ Apartment.bathrooms
         }}<i class="fa fa-bathtub ms-1" aria-hidden="true"></i>
       </h5>
     </div>
     <div class="card-body row mt-1">
       <h5 class="card-title offset-1 col-lg-2 mt-3">
-        City: {{ Apartment?.city }}
+        City: {{ Apartment.city }}
       </h5>
       <h5 class="card-title offset-1 col-lg-3 mt-3">
-        Publish Date: {{ Apartment?.adDate | date }}
+        Publish Date: {{ Apartment.adDate | date }}
       </h5>
       <h5 class="card-title col-lg-2 offset-sm-1 mt-3 offset-lg-0">
-        Views: {{ Apartment?.viewsCount }}
+        Views: {{ Apartment.viewsCount }}
       </h5>
       <h5 class="card-text offset-lg-0 col-lg-2 offset-sm-1 mt-3">
-        Address: {{ Apartment?.address }}
+        Address: {{ Apartment.address }}
       </h5>
     </div>
     <hr>
@@ -76,7 +76,7 @@
       <h3 class="card-title ms-4">Description</h3>
     </div>
     <div class="card-body row">
-      <h4 class="card-title ms-3 mt-1">{{ Apartment?.description }}</h4>
+      <h4 class="card-title ms-3 mt-1">{{ Apartment.description }}</h4>
     </div>
     <hr>
     <div class="card-body row">
@@ -84,13 +84,13 @@
     </div>
     <div class="card-body row">
       <h5 class="card-title col-lg-3 ms-lg-5">
-        Phone: {{ Apartment?.brokerPhone }} <i class="fas fa-phone"></i>
+        Phone: {{ Apartment.brokerPhone }} <i class="fas fa-phone"></i>
       </h5>
       <h5 class="card-title col-lg-4 ms-lg-5">
         <i class="fa fa-mail-forward" aria-hidden="true"></i>
-        Email: {{ Apartment?.brokerEmail }}
+        Email: {{ Apartment.brokerEmail }}
       </h5>
-      <h5 class="card-title col-lg-3 ms-lg-2">Code: {{ Apartment?.code }}</h5>
+      <h5 class="card-title col-lg-3 ms-lg-2">Code: {{ Apartment.code }}</h5>
     </div>
     <div class="row justify-content-center">
       <button
@@ -112,11 +112,17 @@
       <button
         type="button"
         class="btn favorite col-3 col-lg-3 mt-5 offset-sm-1 "
-        (click)="AddToFav(Apartment?.id)"
+        (click)="AddToFav(Apartment.id)"
+        *ngIf="!Apartment.isFavorite;else templateName"
       >
         Add To Favorite
         <i class="fa fa-heart" aria-hidden="true"></i>
       </button>
+      <ng-template #templateName>
+          <button type="button" class="btn favorite col-3 col-lg-3 mt-5 offset-sm-1 " (click)="RemoveFromFav(Apartment.id)" >
+            <i class="fa fa-heart" aria-hidden="true"></i> Remove From Favorite
+          </button>
+      </ng-template>
     </div>
     <br>
   </div>

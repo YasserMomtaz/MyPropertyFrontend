@@ -12,11 +12,12 @@ export class Apartment {
     public viewsCount: number = 1,
     public notes: string = '',
     public photos: string[] = [],
-    public maxPrice: number,
-    public type: string,
+    public maxPrice: number=0,
+    public type: string="",
     public adDate: Date,
     public brokerPhone: string,
     public brokerEmail: string,
+    public isFavorite:boolean,
     public code:any=''!
   ) {}
 }
