@@ -1,0 +1,62 @@
+
+<style>
+
+  form {
+width: 40%;
+margin: 0 auto;
+font-size: 1em;
+border: 2px solid rgb(160, 159, 159); 
+padding: 50px; 
+}
+label {
+  display: block;
+  margin-top: 10px;
+}
+input[type=text], input[type=email], input[type=password], input[type=tel] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  font-size: 1.2em;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+button:hover {
+  background-color: #45a049;
+}
+</style>
+  
+
+<form>
+    <label>
+      Username:
+      <input type="text" name="username" [(ngModel)]="nbroker.brokerName" required>
+    </label>
+    <label>
+      Email:
+      <input type="email" name="email" [(ngModel)]="nbroker.email" required>
+    </label>
+    <label>
+      Password:
+      <input type="password" name="password" [(ngModel)]="nbroker.password" required>
+    </label>
+    <label>
+      Phone Number:
+      <input type="tel" name="phoneNumber" [(ngModel)]="nbroker.phoneNumber" required>
+    </label>
+    <label>
+      City:
+      <input type="text" name="city" [(ngModel)]="nbroker.city" required>
+    </label>
+    <button (click)="Add()"> Add </button>
+  </form>
